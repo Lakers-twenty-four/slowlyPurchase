@@ -1,0 +1,21 @@
+body {
+  background-color: #f2f2f2;
+}
+
+.hide {
+  display: none;
+}
+
+.entirety .main {
+  background-color: #ebebeb;
+  width: 97%;
+  margin: 1.5% auto 0;
+  height: 500px;
+  border: 1px solid #ccc;
+  border-radius: 7px;
+}
+
+.entirety .main ul {
+  list-style: none;
+}
+/*# sourceMappingURL=listclass.css.map */
