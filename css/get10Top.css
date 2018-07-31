@@ -21,8 +21,6 @@ body {
   /* 导航部分结束 */
   /* 标题部分开始 */
   /* 标题部分结束 */
-  /* 内容列表部分开始 */
-  /* 内容列表部分结束 */
 }
 
 .content .nav {
@@ -39,6 +37,10 @@ body {
   font-family: "iconfont";
 }
 
+.content .nav p {
+  display: inline;
+}
+
 .content h3 {
   font-size: 16px;
   color: #874604;
@@ -50,30 +52,61 @@ body {
   background-color: #eee;
 }
 
-.content .con_list ul {
-  padding: 0 10px;
+/* 哪个牌子好部分开始 */
+.whichBrandNice li {
+  border-bottom: 1px solid #e7e7e7;
+  padding: 10px;
 }
 
-.content .con_list ul li a {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+.whichBrandNice li a {
+  display: inline-block;
   width: 100%;
-  color: #000;
-  font-size: 16px;
-  border-bottom: 1px solid #ccc;
 }
 
-.content .con_list ul li a span {
-  font-weight: bold;
+.whichBrandNice li a em {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  background: #c9c9c9;
+  color: #FFFFFF;
+  line-height: 20px;
+  vertical-align: top;
+  margin: 0 10px 0 0;
+  font-size: 14px;
 }
 
-.content .con_list ul li a .iconfont {
+.whichBrandNice li a .secCon {
+  display: inline-block;
+}
+
+.whichBrandNice li a .secCon h4 {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.whichBrandNice li a .secCon p {
+  font-size: 12px;
+}
+
+.whichBrandNice li a .iconfont {
+  float: right;
   font-family: "iconfont";
+  font-size: 24px;
 }
 
+.whichBrandNice li:first-child em {
+  background-color: #f10e0e;
+}
+
+.whichBrandNice li:nth-child(2) em {
+  background-color: #ff9314;
+}
+
+.whichBrandNice li:nth-child(3) em {
+  background-color: #8adf5b;
+}
+
+/* 哪个牌子好部分结束 */
 /* 内容部分结束 */
-/*# sourceMappingURL=top10brand.css.map */
+/*# sourceMappingURL=get10Top.css.map */

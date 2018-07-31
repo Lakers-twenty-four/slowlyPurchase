@@ -32,26 +32,29 @@
                 热门品牌排行
             </h3>
             <!-- 标题部分结束 -->
+
+            <!-- 内容列表部分开始 -->
+            <div class="con_list">
+                <ul>
+                    <script type="text/x-art-template" id="tmpl">
+                        {{each comments}}
+                        <li>
+                            <a href="./get10Top.php?id={{$value.brandTitleId}}&name={{$value.brandTitle}}">
+                                <span>{{$value.brandTitle}}</span>
+                                <i class="iconfont">&#xe772;</i>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+            <!-- 内容列表部分结束 -->
         </div>
+
+
         <!-- 内容部分结束 -->
 
-        <!-- 内容列表部分开始 -->
-        <div class="con_list">
-            <ul>
 
-                <script type="text/x-art-template" id="tmpl">
-                    {{each comments}}
-                    <li>
-                        <a href="javascript:;">
-                            <span>{{$value.brandTitle}}</span>
-                            <i class="iconfont">&#xe772;</i>
-                        </a>
-                    </li>
-                    {{/each}}
-                </script>
-            </ul>
-        </div>
-        <!-- 内容列表部分结束 -->
 
         <!-- footer部分开始 -->
         <div class="footer"></div>

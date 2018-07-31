@@ -35,6 +35,9 @@ body {
         .iconfont {
             font-family: "iconfont";
         }
+        p {
+            display: inline;  
+        }
     }
     /* 导航部分结束 */
     /* 标题部分开始 */
@@ -49,30 +52,63 @@ body {
         background-color: #eee;
     }
     /* 标题部分结束 */
-    
-    /* 内容列表部分开始 */
-    .con_list {
-        ul {
-            padding: 0 10px;
-            li {
-                a {
-                    display: flex;
-                    justify-content: space-between;
-                    width: 100%;
-                    color: #000;
-                    font-size: 16px;
-                    border-bottom: 1px solid #ccc;
-                    span {
-                        font-weight: bold;
-                    }
-                    .iconfont {
-                        font-family: "iconfont";
-                    }
+}
+
+/* 哪个牌子好部分开始 */
+
+.whichBrandNice {
+    li {
+        border-bottom: 1px solid #e7e7e7;
+        padding: 10px;
+        a {
+            display: inline-block;
+            width: 100%;
+            em {
+                display: inline-block;
+                width: 20px;
+                height: 20px;
+                text-align: center;
+                background: #c9c9c9;
+                color: #FFFFFF;
+                line-height: 20px;
+                vertical-align: top;
+                margin: 0 10px 0 0;
+                font-size: 14px;
+            }
+            .secCon {
+                display: inline-block;
+                h4 {
+                    font-style: normal;
+                    font-weight: 600;
                 }
+                p {
+                    font-size: 12px;
+                }
+            }
+            .iconfont {
+                float: right;
+                font-family: "iconfont";
+                font-size: 24px;
             }
         }
     }
-    /* 内容列表部分结束 */
+    li:first-child {
+        em {
+            background-color: #f10e0e;
+        }
+    }
+    li:nth-child(2) {
+        em {
+            background-color: #ff9314;
+        }
+    }
+    li:nth-child(3) {
+        em {
+            background-color: #8adf5b;
+        }
+    }
 }
+
+/* 哪个牌子好部分结束 */
 
 /* 内容部分结束 */
