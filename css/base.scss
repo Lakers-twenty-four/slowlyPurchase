@@ -21,7 +21,7 @@ h6,
 form,
 fieldset,
 legend,
-img {
+img {  
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -85,17 +85,13 @@ input {
 
 body {
     -webkit-font-smoothing: antialiased;
-<<<<<<< HEAD
-    background-color: #fff;
-=======
->>>>>>> ebd811720497a1c13f8f458c93638df4b21bc4a4
     font: 12px/1.5 'sinsum', Heiti SC, tahoma, arial, Hiragino Sans GB, \\5B8B\4F53, sans-serif;
     color: #666
 }
 
 .hide,
 .none {
-    display: none
+    display: none   
 }
 
 /*清除浮动*/
@@ -110,7 +106,7 @@ body {
 }
 
 .clearfix {
-    zoom: 1;
+    zoom: 1;    
     /*IE678*/
 }
 

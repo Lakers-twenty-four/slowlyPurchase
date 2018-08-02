@@ -36,7 +36,7 @@ body {
             font-family: "iconfont";
         }
         p {
-            display: inline;  
+            display: inline;
         }
     }
     /* 导航部分结束 */
@@ -110,5 +110,59 @@ body {
 }
 
 /* 哪个牌子好部分结束 */
+
+/* 产品销量排行部分开始 */
+
+.sellRanking {
+    ul {
+        li {
+            border-bottom: 1px solid #e7e7e7;
+            padding: 10px;
+            a {
+                display: flex;
+                .pic {
+                    width: 100px;
+                    float: left;
+                    margin-right: 10px;
+                    img {
+                        width: 100px;
+                        height: 100px;
+                    }
+                }
+                .info {
+                    flex:1;
+                    font-size: 14px;
+                    line-height: 24px;
+                    .title {
+                        color: #333333;
+                        line-height: 22px;
+                    }
+                    .price {
+                        display: inline-block;
+                        width: 100%;
+                        em {
+                            font-size: 18px;
+                            color: #ea3900; // vertical-align: middle;
+                            float: left;
+                        }
+                        .star {
+                            float: right;
+                            .iconfont {
+                                font-family: "iconfont";
+                                color: #0094FF;
+                            }
+                        }
+                    }
+                    .other {
+                        font-size: 12px;
+                        color: #999;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* 产品销量排行部分结束 */
 
 /* 内容部分结束 */
