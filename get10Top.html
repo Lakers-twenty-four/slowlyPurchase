@@ -255,6 +255,10 @@
                         $(".goodHelpComment .title").append(h3Obj);
                         // setInnerText(h3Obj,title + "产品销量排行");
                         $(".goodHelpComment .title>h3").text(title + "最新的评价");
+                    } else {
+                        //评论返回数据长度为0，清除
+                        $(".brandInfo .pic").html("");
+                        $(".brandInfo p").text("");
                     }
                     var data = res.result;
                     //调用模板引擎渲染数据
