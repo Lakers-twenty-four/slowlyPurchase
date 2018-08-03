@@ -172,7 +172,7 @@ body {
 /* 产品销量排行部分结束 */
 /* 最有用的用户评价部分开始 */
 .goodHelpComment {
-  padding: 10px;
+  padding: 0 10px;
 }
 
 .goodHelpComment .brandInfo {
@@ -243,6 +243,10 @@ body {
   margin-top: 10px;
   line-height: 22px;
   font-size: 15px;
+}
+
+.goodHelpComment ul li .comment .commentCon p {
+  text-indent: 2em;
 }
 
 .goodHelpComment ul li .comment .comefrom {

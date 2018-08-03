@@ -168,7 +168,7 @@ body {
 /* 最有用的用户评价部分开始 */
 
 .goodHelpComment {
-    padding: 10px;
+    padding: 0 10px;
     .brandInfo {
         display: flex;
         .pic {
@@ -228,6 +228,9 @@ body {
                     margin-top: 10px;
                     line-height: 22px;
                     font-size: 15px;
+                    p {
+                        text-indent: 2em;  
+                    }
                 }
                 .comefrom {
                     display: inline-block;
