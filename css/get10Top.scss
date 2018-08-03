@@ -130,7 +130,7 @@ body {
                     }
                 }
                 .info {
-                    flex:1;
+                    flex: 1;
                     font-size: 14px;
                     line-height: 24px;
                     .title {
@@ -164,5 +164,82 @@ body {
 }
 
 /* 产品销量排行部分结束 */
+
+/* 最有用的用户评价部分开始 */
+
+.goodHelpComment {
+    padding: 10px;
+    .brandInfo {
+        display: flex;
+        .pic {
+            img {
+                width: 80px;
+                height: 80px;
+            }
+        }
+        p {
+            flex: 1;
+            vertical-align: top;
+            color: #999999;
+            line-height: 22px;
+            font-size: 14px;
+            padding-left: 16px; // text-indent: 2em;
+        }
+    }
+    ul {
+        li {
+            border-bottom: 1px solid #e7e7e7;
+            
+            .comment {
+                background: #f8f8f8;
+                padding: 10px;
+                border: 1px solid #e7e7e7;
+                position: relative;
+                margin-top: 12px;
+                padding-bottom: 12px;
+                &::before {
+                    position: absolute;
+                    top: -8px;
+                    left: 29px;
+                    content: "";
+                    display: block;
+                    width: 0;
+                    height: 0;
+                    border-bottom: 8px solid #f8f8f8;
+                    border-left: 8px solid transparent;
+                    border-right: 8px solid transparent;
+                }
+                .commentTitle {
+                    font-size: 14px;
+                    .star {
+                        .iconfont {
+                            font-family: "iconfont";
+                            color: #0094FF;
+                        }
+                    }
+                    >i {
+                        color: #999999;
+                        float: right;
+                        font-style: normal;
+                    }
+                }
+                .commentCon {
+                    color: #000000;
+                    margin-top: 10px;
+                    line-height: 22px;
+                    font-size: 15px;
+                }
+                .comefrom {
+                    display: inline-block;
+                    position: absolute;
+                    right: 2px;
+                    bottom:2px;
+                }
+            }
+        }
+    }
+}
+
+/* 最有用的用户评价部分结束 */
 
 /* 内容部分结束 */

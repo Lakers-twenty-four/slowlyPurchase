@@ -57,35 +57,81 @@
 
             <!-- 产品销量排行部分开始 -->
             <div class="sellRanking">
-                <h3></h3>
-                <ul>
-                    <li>
-                        <a href="javascript:;">
-                            <div class="pic">
-                                <img src="http://pro.zuyushop.com:8015/ProPic/20165/Thumb/Thumb_2016050013560999704.png" alt="">
-                            </div>
-                            <div class="info">
-                                <div class="title">格力(GREE) KFR-35GW/(35592)FNhDa-A3 品圆 大1.5匹 冷暖变频 除甲醛 壁挂式空调</div>
-                                <div class="price clearfix">
-                                    <em>￥2999.00</em>
-                                    <div class="star">
-                                        <i class="iconfont">&#xe60c;</i>
-                                        <i class="iconfont">&#xe60c;</i>
-                                        <i class="iconfont">&#xe60c;</i>
-                                        <i class="iconfont">&#xe60c;</i>
-                                        <i class="iconfont">&#xe60c;</i>
+                <div class="title"></div>
+                <ul class="sellRankingUl">
+                    <script type="text/x-art-template" id="tmpl2">
+                        {{each comments}}
+                        <li>
+                            <a href="javascript:;">
+                                <div class="pic">
+                                    <!-- <img src="http://pro.zuyushop.com:8015/ProPic/20165/Thumb/Thumb_2016050013560999704.png" alt=""> -->
+                                    {{@ $value.productImg}}
+                                </div>
+                                <div class="info">
+                                    <div class="title">{{$value.productName}}</div>
+                                    <div class="price clearfix">
+                                        <em>{{$value.productPrice}}</em>
+                                        <div class="star">
+                                            <i class="iconfont">&#xe60c;</i>
+                                            <i class="iconfont">&#xe60c;</i>
+                                            <i class="iconfont">&#xe60c;</i>
+                                            <i class="iconfont">&#xe60c;</i>
+                                            <i class="iconfont">&#xe60c;</i>
+                                        </div>
+                                    </div>
+                                    <div class="other">
+                                        <em>{{$value.productQuote}}</em>
+                                        <em>{{$value.productCom}}</em>
                                     </div>
                                 </div>
-                                <div class="other">
-                                    <em>报价(8)</em>
-                                    <em>全网评论(361156)</em>
-                                </div>
-                            </div>
-                        </a>
-                    </li>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </script>
                 </ul>
             </div>
             <!-- 产品销量排行部分结束 -->
+
+            <!-- 最有用的用户评价部分开始 -->
+            <div class="goodHelpComment">
+                <div class="title"></div>
+                <!-- <h3></h3> -->
+                <div class="brandInfo">
+                    <div class="pic">
+                        
+                    </div>
+                    <p></p>
+                </div>
+                <ul class="goodHelpCommentUl">
+                    <!-- 准备一个模板引擎 -->
+                    <script type="text/x-art-template" id="tmpl3">
+                        {{each comments}}
+                        <li>
+                            <div class="comment">
+                                <a href="javascript:;">
+                                    <div class="commentTitle">
+                                        <span class="name">{{$value.comName}}</span>
+                                        <span class="star">
+                                            <i class="iconfont"></i>
+                                            <i class="iconfont"></i>
+                                            <i class="iconfont"></i>
+                                            <i class="iconfont"></i>
+                                            <i class="iconfont"></i>
+                                        </span>
+                                        <i>{{$value.comTime}}</i>
+                                    </div>
+                                    <div class="commentCon">
+                                        {{$value.comContent}}
+                                    </div>
+                                    <i class="comefrom">{{$value.comFrom}}</i>
+                                </a>
+                            </div>
+                        </li>
+                        {{/each}}
+                    </script>
+                </ul>
+            </div>
+            <!-- 最有用的用户评价部分结束 -->
         </div>
 
         <!-- footer部分开始 -->
@@ -93,11 +139,10 @@
         <!-- footer部分结束 -->
 
     </div>
-    <script src="./js/jquery-1.12.2.min.js"></script>
+    <script src="./js/zh-zepto/zepto.min.js"></script>
     <script src="./js/plugin/art-template/template-web.js"></script>
     <script>
         $(document).ready(function () {
-
             function GetRequest() {
                 var url = decodeURI(location.search); //获取url中"?"符后的字串   
                 var theRequest = new Object();
@@ -124,8 +169,8 @@
             //console.log(title);//三门冰箱
             $(".nav p").text(title + "哪个牌子好");
             $(".content>h3").text(title + "哪个牌子好");
-            $(".sellRanking>h3").text(title + "产品销量排行");
-
+            // $(".sellRanking>h3").text(title + "产品销量排行");
+            $(".goodHelpComment>h3").text(title + "最有用的用户评价");
             $.ajax({
                 dataType: "json",
                 type: "get",
@@ -134,7 +179,7 @@
                 },
                 url: "http://193.112.55.79:9090/api/getbrand",
                 success: function (res) {
-
+                    // console.log(res.result);
                     var data = res.result;
                     //调用模板引擎渲染数据
                     var context = {
@@ -150,21 +195,82 @@
                 }
             });
 
+            //第一个商品的productid
+            var firstProductid;
+
             $.ajax({
                 dataType: "json",
                 type: "get",
                 data: {
-                    brandtitleid: btId,
+                    brandtitleid: btId
                 },
                 url: "http://193.112.55.79:9090/api/getbrandproductlist",
                 success: function (res) {
-                    console.log(res);
+                    var data = res.result;
+                    // console.log(res.result);
+                    if (data.length != 0) {
+                        var h3Obj = document.createElement("h3");
+                        $(".sellRanking .title").append(h3Obj);
+                        // setInnerText(h3Obj,title + "产品销量排行");
+                        $(".sellRanking .title>h3").text(title + "产品销量排行");
+
+                        //为第一个商品的proId赋值
+                        firstProductid = data[0].productId;
+                        getHelpComment(firstProductid, title);
+
+                        //为评论的商品加图片和描述
+                        $(".brandInfo .pic").html(data[0].productImg);
+                        $(".brandInfo p").text(data[0].productName);
+                    }
+
+                    //调用模板引擎渲染数据
+                    var context = {
+                        comments: data
+                    }
+                    //借助模板引擎的api
+                    var html = template('tmpl2', context);
+                    //将渲染结果的html设置到默认元素的innerHTML中
+                    $(".sellRankingUl").html(html);
                 },
                 error: function () {
                     console.log("请求数据失败");
                 }
             });
+
+
         });
+
+        function getHelpComment(firstProductid, title) {
+            $.ajax({
+                dataType: "json",
+                type: "get",
+                data: {
+                    productid: firstProductid
+                },
+                url: "http://193.112.55.79:9090/api/getproductcom",
+                success: function (res) {
+                    console.log(res.result);
+                    if (res.result.length != 0) {
+                        var h3Obj = document.createElement("h3");
+                        $(".goodHelpComment .title").append(h3Obj);
+                        // setInnerText(h3Obj,title + "产品销量排行");
+                        $(".goodHelpComment .title>h3").text(title + "最新的评价");
+                    }
+                    var data = res.result;
+                    //调用模板引擎渲染数据
+                    var context = {
+                        comments: data
+                    }
+                    //借助模板引擎的api
+                    var html = template('tmpl3', context);
+                    // //将渲染结果的html设置到默认元素的innerHTML中
+                    $(".goodHelpCommentUl").html(html);
+                },
+                error: function () {
+                    console.log("请求数据失败");
+                }
+            });
+        }
     </script>
     <script src="./js/get10top.js"></script>
 </body>
